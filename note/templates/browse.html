@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>your notes</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'main' %}">Just notes</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li><a href="{% url 'main' %}">Home</a></li>
+                <li class="active"><a href="{% url 'browse' %}">My notes</a></li>
+                <li><a href="{% url 'editor' %}">New note</a></li>
+                <li><a href="#">Contact us</a></li>
+              </ul>
+            </div>
+          </nav>
+        <div>
+            <ul>
+                {% for not in notes %}
+                <li>
+                    <a href="{% url 'browse' %}?noteid={{not.id}}">{{not.title}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>
