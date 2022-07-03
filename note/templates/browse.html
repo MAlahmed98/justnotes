@@ -22,13 +22,17 @@
             </div>
           </nav>
         <div>
-            <ul>
+          <form action="" method="POST">
+            <table>
                 {% for not in notes %}
-                <li>
-                    <a href="{% url 'browse' %}?noteid={{not.id}}">{{not.title}}</a>
-                </li>
+                <tr>
+                    <td><a href="{% url 'browse' %}?noteid={{not.id}}">{{not.title}}</a></td>
+                    <td><a href=""><button type="button" class="btn btn-danger">DELETE</button></a></td>
+                    <td><input type="button" class="btn btn-secondary" value="EDIT"></td>
+                </tr>
                 {% endfor %}
-            </ul>
+            </table>
+          </form>
         </div>
     </body>
 </html>
